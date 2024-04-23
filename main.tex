@@ -128,7 +128,12 @@
 \usepackage{natbib}
 \usepackage{minted}
 \usepackage{subcaption}
+\usepackage{xcolor}
+
+
 \begin{document}
+
+\newcommand{\wq}[1]{{\color{blue}#1}}
 
 %%
 %% The "title" command has an optional parameter,
@@ -306,7 +311,21 @@ functions.
 \maketitle
 
 \section{Introduction}
-Penetration testing, or pen testing is a critical cybersecurity practice designed to identify, exploit, and help remediate vulnerabilities in a network or system before malicious attackers can discover and exploit them. This method of security assessment has evolved significantly since its informal origins in the 1960s when early computer scientists tested system boundaries. Today, organizations like Cloudflare, Imperva, HackerOne, and IBM emphasize its vital role in fortifying digital defenses—underscoring its importance in contemporary cybersecurity strategies. Operating system security is a cornerstone of overall network security; it serves as the first line of defense against cyber threats. Through rigorous penetration testing, vulnerabilities within operating systems can be uncovered and mitigated, significantly reducing potential exposure to attacks. This proactive approach is essential not only for protecting organizational assets but also for safeguarding end-user data from increasingly sophisticated cyber threats.
+
+
+    
+Penetration testing, or pen testing is a critical cybersecurity practice designed to identify, exploit, and help remediate vulnerabilities in a network or system before malicious attackers can discover and exploit them~\cite{henry2012penetration}. It has evolved significantly since its informal origins in the 1960s when early computer scientists tested system boundaries~\cite{hunt2011us} and has become an important part of modern cybersecurity. For instance, penetration testing is required in the Payment Card Industry Data Security Standard on a regular schedule~\cite{lybrand2013use} and also plays its role in risk management~\cite{maclean2017nist}. Nowadays, penetration test reports also suggest countermeasures to reduce potential risks ~\cite{engebretson2013basics}. Organizations like Cloudflare, Imperva, HackerOne, and IBM emphasize its vital role in fortifying digital defenses—underscoring its importance in contemporary cybersecurity strategies.
+
+Operating system security is a cornerstone of overall network security; it serves as the first line of defense against cyber threats~\cite{stallings2012operating}. Adversaries can gain access to mainstream operating systems such as Windows, and Unix-based systems using various vulnerabilities of the systems. One way to better protect users from attacks on their operating systems is rigorous penetration testing so that the vulnerabilities within operating systems can be uncovered and mitigated, which significantly reduces potential exposure to attacks. This proactive approach is essential not only for protecting organizational assets but also for safeguarding end-user data from increasingly sophisticated cyber threats.
+
+In this paper, we present our work on penetration testing on operating systems, in particular, under the situation that no information about the login credentials is known. Our penetration testing report finds out the potential issue of accessing the admin accounts using BASH commands in Linux systems. Additionally, with the help of some penetration testing devices such as USB Rubber Ducky, we study the performance of the speed of efficiency of emulating malicious code such as keystrokes on Linux systems. We also study a similar case on Windows systems. 
+Our contribution mainly focuses on the following:
+\begin{enumerate}
+    \item A penetration test on Linux systems to gain admin access only through Bash commands without any prior knowledge about the login credential.
+    \item A penetration test on Linux systems using penetration testing devices to install malicious code and experiments on the performance.\wq{Can we add the experiments about this? or do we have experiments?}
+    \item A exploration of performing penetration tests on Windows systems.
+    \item The suggested countermeasures to protect against the found vulnerabilities.
+\end{enumerate}
 
 \section{Background}
 The operating system ecosystem is primarily dominated by Windows, Linux, and macOS, each with unique architectures and security features tailored to different market needs. Windows, developed by Microsoft commands a substantial market share, especially in enterprise and personal computing thanks to its user-friendly interface and broad software compatibility. It incorporates regular security updates and tools like Windows Defender to combat malware. Linux, favored for its stability and security is widely used in servers and supercomputers and supports extensive customization with robust user permissions and effective process management. macOS, by Apple although less prevalent in market share is preferred among creative professionals for its seamless integration of hardware and software and robust security measures such as Gatekeeper and FileVault. These operating systems are fundamental to modern IT infrastructure each addressing specific security requirements and vulnerabilities related to their distinct environments.
